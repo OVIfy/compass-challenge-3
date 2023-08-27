@@ -23,6 +23,3 @@ export const updateUserJoiSchema = Joi.object({
     password : Joi.string().required(),
     confirmPassword : Joi.ref('password'),
 }).and('password', 'confirmPassword')
-
-export type User = joi.extractType<typeof userJoiSchema>;
-export type UserAddress = joi.extractType<typeof updateUserJoiSchema>;
