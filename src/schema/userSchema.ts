@@ -1,7 +1,8 @@
 import Joi from "joi";
-import { User } from "../schema/userSchema";
+import * as joi from '@hapi/joi';
+import 'joi-extract-type'
 
-export const userJoiSchema = Joi.object({
+const userJoiSchema = Joi.object({
     firstName : Joi.string().required(),
     lastName : Joi.string().required(),
     birthDate : Joi.string().required(),
@@ -23,3 +24,5 @@ export const updateUserJoiSchema = Joi.object({
     confirmPassword : Joi.ref('password'),
 }).and('password', 'confirmPassword')
 
+export type User = joi.extractType<typeof userJoiSchema>;
+export type UserAddress = joi.extractType<typeof updateUserJoiSchema>;
