@@ -2,8 +2,8 @@ import { Request, Response } from "express"
 import { get, controller, post, del, use } from "../decorators"
 import Controller from "./Controllers"
 import { Event } from "../db/schema-models/Event"
-import { EventService } from "../services/EventService"
-import { validateEventByDesorDayQuery, validateEventToBeCreated, validateParamId } from "../middlewares/bodyValidators"
+import { EventService, dayOfWeek } from "../services/EventService"
+import { validateByDayQuery, validateEventByDesorDayQuery, validateEventToBeCreated, validateParamId } from "../middlewares/bodyValidators"
 import { authenticator } from "../middlewares/authenticator"
 import { AuthenticatedRequest } from "../middlewares/authenticator"
 
@@ -29,6 +29,15 @@ export class EventContollers extends Controller<Event>{
     async findEventsByDayOrDesc(req : AuthenticatedRequest, res: Response){
         const foundEvents = await eventService.findEventsByDescOrDay(req.query as Event)
         res.json(foundEvents)
+    }
+
+    @del('/')
+    @use(authenticator)
+    @use(validateByDayQuery)
+    async deleteEventsByDay(req : AuthenticatedRequest, res: Response){
+        const {dayOfWeek} = req.query
+        const deletedEvents = await eventService.deleteEventsByDay({dayOfWeek : dayOfWeek as string})
+        res.status(200).json({deletedEvents})
     }
 
     @get('/:id')

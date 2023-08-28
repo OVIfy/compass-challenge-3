@@ -1,5 +1,5 @@
 import { userJoiSchema, userSignInSchema } from '../schema/userSchema';
-import { eventJoiSchema, queryByDayorDescJoiSchema } from '../schema/eventSchema';
+import { eventJoiSchema, queryByDaySchema, queryByDayorDescJoiSchema } from '../schema/eventSchema';
 import { NextFunction, Request, Response } from "express";
 import { handleJoiError } from "../utils/handleJoiError";
 import { isObjectIdOrHexString } from 'mongoose';
@@ -34,5 +34,12 @@ export function validateParamId(req : Request, res:Response , next:NextFunction)
     const {id} = req.params
 
     if(!isObjectIdOrHexString(id)) throwBadRequestError('Invalid ID supplied', 'ID')
+    next()
+}
+
+export function validateByDayQuery(req : Request, res:Response , next:NextFunction){
+    console.log(req.query)
+    const { error } = queryByDaySchema.validate(req.query);
+    if(error) handleJoiError(error as any)
     next()
 }

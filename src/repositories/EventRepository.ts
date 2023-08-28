@@ -11,5 +11,9 @@ export class EventRepo extends Repository<Event, Event>{
         const events = await this._model.find(query).select('_id dayOfWeek publisher userId description')
         return events 
     }
+
+    async deleteEventsByDay(){
+        
+    }
 }
 

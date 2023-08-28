@@ -4,7 +4,9 @@ import { EventRepo } from '../repositories/EventRepository';
 import { Event } from '../db/schema-models/Event';
 import { ObjectId } from 'mongoose';
 
-
+export type dayOfWeek = {
+    dayOfWeek : string
+}
 
 export class EventService extends Service<Event, Event>{
     _repository = new EventRepo()
@@ -31,5 +33,14 @@ export class EventService extends Service<Event, Event>{
             dayOfWeek : event.dayOfWeek,
             publisher : event?.publisher,
         } as any
+    }
+
+    async deleteEventsByDay(query : dayOfWeek){
+        const eventsToBeDel = await this.findEventsByDescOrDay(query as Event)
+
+        if(eventsToBeDel) await this._repository.deleteMany(query)
+
+        console.log(eventsToBeDel)
+        return eventsToBeDel
     }
 }
