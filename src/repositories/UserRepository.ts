@@ -17,4 +17,4 @@ export class UserRepo extends Repository<User, StrictUser>{
     }
 }
 
-const userRepo = new UserRepo()
+// const userRepo = new UserRepo()

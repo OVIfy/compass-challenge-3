@@ -1,10 +1,13 @@
 require('dotenv').config()
 import express, { Express } from "express";
 import { AppRouter } from "./AppRouter";
-import "./controllers/UserController";
 import morgan from "morgan";
 import { connectToDB } from "./db/connect";
 import { errorHandler } from "./middlewares/handler";
+
+//controllers
+import "./controllers/UserController";
+import "./controllers/EventController";
 
 const app = express()
 const PORT = process.env.PORT || 4000

@@ -1,4 +1,4 @@
-import { RequestHandler } from 'express';
+import { Request, RequestHandler, Response } from 'express';
 import codes from 'http-status-codes';
 import { Entity } from '../@types/Entity';
 import Service from '../services/Services';
@@ -6,13 +6,17 @@ import Service from '../services/Services';
 
 
 export abstract class Controller<T>{
-  // protected abstract _service: Servicse<T>;
+  // protected abstract _service: Service<T, T>;
 
-  create: RequestHandler = async (req, res) => {
-    // const { body } = req;
-    // const created = await this._service.createOne(body as T);
-    // res.status(codes.CREATED).json(created);
-  };
+  // create: RequestHandler = async (req, res) => {
+  //   // const { body } = req;
+  //   // const created = await this._service.createOne(body as T);
+  //   // res.status(codes.CREATED).json(created);
+  // };
+
+  async create(req:Request , res:Response){
+
+  }
 
   findById: RequestHandler = async (req, res) => {
     // const { params: { id } } = req;

@@ -11,6 +11,7 @@ const userService = new UserService
 
 @controller('/users')
 export class UserContollers extends Controller<User>{
+    
 
     @post('/sign-up')
     @use(validateCreateUserBody)
