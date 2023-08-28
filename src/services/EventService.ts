@@ -2,6 +2,7 @@ import 'express-async-errors'
 import Service from "./Services";
 import { EventRepo } from '../repositories/EventRepository';
 import { Event } from '../db/schema-models/Event';
+import { ObjectId } from 'mongoose';
 
 
 
@@ -14,6 +15,15 @@ export class EventService extends Service<Event, Event>{
     }
 
     async findEventsByDescOrDay(query : Event){
-        const events = this._repository.findEventsByDescOrDay({} as Event)
+        if(query.description){
+            let re = new RegExp(query.description, "i");
+            query.description = re as any
+        }
+        const events =  await this._repository.findEventsByDescOrDay(query)
+        return events
+    }
+
+    async deleteById(id : ObjectId | string){
+        console.log('deleted')
     }
 }
