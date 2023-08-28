@@ -1,8 +1,10 @@
+import 'express-async-errors'
 import { User, StrictUser } from "../db/schema-models/User";
 import Service from "./Services";
 import { UserRepo } from "../repositories/UserRepository";
-import { throwValidationError } from "../errors/errors";
-import 'express-async-errors'
+import { throwNotFoundError, throwValidationError } from "../errors/errors";
+import bcrypt from 'bcrypt'
+import { signJwt } from '../utils/jwtUtils';
 
 export type UserWithEmailAndPass = {
     email : string,
@@ -26,7 +28,28 @@ export class UserService extends Service<User, StrictUser>{
     }
 
     async signIn(user : UserWithEmailAndPass){
+        const foundUser = await this._repository.findByEmail({email : user.email})
+        if(!foundUser) throwNotFoundError('Email does not exist in our database')
 
+        const isPasswordCorrect = await this.validateUser(user, foundUser as UserWithEmailAndPass )
+        
+        
+        if(isPasswordCorrect){
+            let token = signJwt({userId : foundUser?._id})
+            return {
+                firstName : foundUser?.firstName,
+                lastName : foundUser?.lastName,
+                email : foundUser?.email,
+                accessToken : token 
+            }
+        }else{
+            throwValidationError('Wrong password', 'password', 'Validation Error')
+        }
+    }
+
+    async validateUser(requestUser : UserWithEmailAndPass, userInDB : UserWithEmailAndPass){
+        const isPassword = await bcrypt.compare(requestUser.password, userInDB.password)
+        return isPassword
     }
 
 }

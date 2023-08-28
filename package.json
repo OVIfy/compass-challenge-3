@@ -10,6 +10,7 @@
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/express": "^4.17.17",
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/morgan": "^1.9.5",
     "bcrypt": "^5.1.1",
     "concurrently": "^8.2.1",
@@ -19,6 +20,7 @@
     "http-status-codes": "^2.2.0",
     "joi": "^17.9.2",
     "joi-extract-type": "^15.0.8",
+    "jsonwebtoken": "^9.0.1",
     "mongoose": "^7.4.5",
     "morgan": "^1.10.0",
     "nodemon": "^3.0.1",

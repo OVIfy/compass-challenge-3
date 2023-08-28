@@ -12,8 +12,7 @@ export class UserRepo extends Repository<User, StrictUser>{
     protected _model = UserModel
 
     async findByEmail(validObj : userHasEmail){
-        const foundObj = await this._model.findOne(validObj).select('firstName lastNae email')
-        
+        const foundObj = await this._model.findOne(validObj)
         return foundObj
     }
 }

@@ -17,6 +17,4 @@ export function handleJoiError(joiError : Joi.ValidationError){
     if(errorType == 'object.unknown') return throwBadRequestError(errorMessage, 'Unknown Field')
     
     throwBadRequestError(errorMessage, 'Validation Error')
-    // throwBadRequestError(errorMessage, 'Validation Error', errorKey)
-
 }

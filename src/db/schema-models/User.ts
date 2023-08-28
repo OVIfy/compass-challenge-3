@@ -1,4 +1,4 @@
-import mongoose, { InferSchemaType, Schema, model } from "mongoose";
+import { InferSchemaType, Schema, model } from "mongoose";
 import bcrypt from 'bcrypt'
 const saltRounds = 10;
 

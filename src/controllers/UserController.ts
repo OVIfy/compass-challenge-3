@@ -23,8 +23,8 @@ export class UserContollers extends Controller<User>{
     @post('/sign-in')
     @use(validateSignInUserBody)
     async signIn(req : Request, res: Response){
-        const stuff = await userService.signIn(req.body as UserWithEmailAndPass)
-        res.send('sign in user')
+        const validUser = await userService.signIn(req.body as UserWithEmailAndPass)
+        res.json(validUser)
     }
 }
 
