@@ -4,6 +4,7 @@ import { AppRouter } from "./AppRouter";
 import "./controllers/UserController";
 import morgan from "morgan";
 import { connectToDB } from "./db/connect";
+import { errorHandler } from "./middlewares/handler";
 
 const app = express()
 const PORT = process.env.PORT || 4000
@@ -17,6 +18,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1', AppRouter.getInstance())
+app.use(errorHandler)
 
 app.listen(PORT,async ()=>{
     try {

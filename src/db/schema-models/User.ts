@@ -1,8 +1,9 @@
-import { InferSchemaType, Schema, model } from "mongoose";
+import mongoose, { InferSchemaType, Schema, model } from "mongoose";
 import bcrypt from 'bcrypt'
 const saltRounds = 10;
 
 const userSchema = new Schema({
+    id:String,
     firstName : String,
     lastName : String,
     birthDate : String,
@@ -16,9 +17,24 @@ const userSchema = new Schema({
     confirmPassword: String
 })
 
-export type User = InferSchemaType<typeof userSchema>;
+const userSchema2 = new Schema({
+    id:String,
+    firstName : {type:String, required:true},
+    lastName : {type:String, required:true},
+    birthDate : {type:String, required:true},
+    city: {type:String, required:true},
+    country: {type:String, required:true},
+    email: {
+        type : String,
+        unique : true,
+        required : true
+    },
+    password : {type :String, required:true},
+    confirmPassword: {type :String, required:true}
+})
 
-export const UserModel = model<User>("User", userSchema);
+export type User = InferSchemaType<typeof userSchema>;
+export type StrictUser = InferSchemaType<typeof userSchema2>;
 
 userSchema.pre('save', async function(next){
     const hash = await bcrypt.hash(this.password as string, saltRounds)
@@ -29,7 +45,7 @@ userSchema.pre('save', async function(next){
 userSchema.pre('updateOne', async function(next){
 })
 
-export const User = model('user', userSchema)
+export const UserModel = model<User>("User", userSchema);
 
 
 

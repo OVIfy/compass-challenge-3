@@ -1,12 +1,12 @@
 import { RequestHandler } from 'express';
 import codes from 'http-status-codes';
 import { Entity } from '../@types/Entity';
-// import Service from '../services/Service';
+import Service from '../services/Services';
 
 
 
-abstract class Controller<T extends Entity> {
-//   protected abstract _service: Service<T>;
+export abstract class Controller<T>{
+  // protected abstract _service: Servicse<T>;
 
   create: RequestHandler = async (req, res) => {
     // const { body } = req;
