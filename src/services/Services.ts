@@ -12,16 +12,18 @@ abstract class Service<T, K>{
 
     abstract create(validObj : K) : void
 
-    async deleteById(id : ObjectId | string){
-        console.log('deleted')
-    }
-
     async findById(id : ObjectId | string):Promise<T>{
         const foundObj = await this._repository.findById(id)
 
         if(!foundObj) throwNotFoundError('Not Found')
 
         return foundObj as T
+    }
+
+    async deleteById(id : ObjectId | string){
+        const doesObjectExist = await this.findById(id)
+        
+        if(doesObjectExist) await this._repository.deleteById(id)
     }
 }
 

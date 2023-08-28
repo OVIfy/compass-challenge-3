@@ -21,6 +21,6 @@ export abstract class Repository<T, K>{
     }
 
     async deleteById(id : ObjectId | string){
-        // await this._model.deleteOne
+        await this._model.findByIdAndDelete(id)
     }
 }

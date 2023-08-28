@@ -43,7 +43,7 @@ export class EventContollers extends Controller<Event>{
     @use(authenticator)
     @use(validateParamId)
     async deleteById(req : AuthenticatedRequest, res: Response){
-        // await eventService.deleteById()
+        await eventService.deleteById(req.params.id)
         res.status(204).send({})
     }
 }
