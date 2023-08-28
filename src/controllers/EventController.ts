@@ -28,15 +28,15 @@ export class EventContollers extends Controller<Event>{
     @use(validateEventByDesorDayQuery)
     async findEventsByDayOrDesc(req : AuthenticatedRequest, res: Response){
         const foundEvents = await eventService.findEventsByDescOrDay(req.query as Event)
-        res.send(foundEvents)
+        res.json(foundEvents)
     }
 
     @get('/:id')
     @use(authenticator)
     @use(validateParamId)
     async findEventById(req : AuthenticatedRequest, res: Response){
-        // const foundEvents = await eventService.findEventsByDescOrDay(req.query as Event)
-        res.send('find event by id')
+        const foundEvent = await eventService.find(req.params.id)
+        res.json(foundEvent)
     }
 
     @del('/:id')

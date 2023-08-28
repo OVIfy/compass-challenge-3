@@ -12,6 +12,11 @@ export abstract class Repository<T, K>{
 
     async find(validObj : FilterQuery<T>){
         const foundObj = this._model.find(validObj)
+        return foundObj 
+    }
+
+    async findById(id : ObjectId | string){
+        const foundObj = await this._model.findById(id)
         return foundObj
     }
 

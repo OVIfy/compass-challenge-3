@@ -23,5 +23,13 @@ export class EventService extends Service<Event, Event>{
         return events
     }
 
-    
+    async find(id : string | ObjectId){
+        const event = await this.findById(id)
+        return {
+            _id : event?._id,
+            description : event.description,
+            dayOfWeek : event.dayOfWeek,
+            publisher : event?.publisher,
+        } as any
+    }
 }
