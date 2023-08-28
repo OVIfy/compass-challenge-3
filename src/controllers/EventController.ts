@@ -3,7 +3,7 @@ import { get, controller, post, del, use } from "../decorators"
 import Controller from "./Controllers"
 import { Event } from "../db/schema-models/Event"
 import { EventService } from "../services/EventService"
-import { validateEventByDesorDayQuery, validateEventToBeCreated } from "../middlewares/bodyValidators"
+import { validateEventByDesorDayQuery, validateEventToBeCreated, validateParamId } from "../middlewares/bodyValidators"
 import { authenticator } from "../middlewares/authenticator"
 import { AuthenticatedRequest } from "../middlewares/authenticator"
 
@@ -31,9 +31,19 @@ export class EventContollers extends Controller<Event>{
         res.send(foundEvents)
     }
 
+    @get('/:id')
+    @use(authenticator)
+    @use(validateParamId)
+    async findEventById(req : AuthenticatedRequest, res: Response){
+        // const foundEvents = await eventService.findEventsByDescOrDay(req.query as Event)
+        res.send('find event by id')
+    }
+
     @del('/:id')
     @use(authenticator)
+    @use(validateParamId)
     async deleteById(req : AuthenticatedRequest, res: Response){
-        res.send('delete that bastard')
+        // await eventService.deleteById()
+        res.status(204).send({})
     }
 }

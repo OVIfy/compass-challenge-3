@@ -23,7 +23,5 @@ export class EventService extends Service<Event, Event>{
         return events
     }
 
-    async deleteById(id : ObjectId | string){
-        console.log('deleted')
-    }
+    
 }
