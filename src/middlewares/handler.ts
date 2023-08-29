@@ -1,6 +1,8 @@
 import { ErrorRequestHandler } from "express"
 
 import {BadRequestError, InternalServerError, UnauthorizedError, NotFoundError, ValidationError} from'../errors/errors'
+import { JsonWebTokenError } from "jsonwebtoken"
+import { handleJwtError } from "../utils/jwtUtils"
 
 export const errorHandler : ErrorRequestHandler = (err, req, res, next) => {
     if(err instanceof BadRequestError){
@@ -27,6 +29,11 @@ export const errorHandler : ErrorRequestHandler = (err, req, res, next) => {
       })
   }
 
+    if(err instanceof JsonWebTokenError){
+      return res.status(401)
+      .json({"statusCode": 401, "message" : err.message, "error": "Unauthorized"})
+    }
+
     if(err instanceof UnauthorizedError){
       return res.status(err.status)
       .json({"statusCode": err.status, "message" : err.message, "error": "Unauthorized"})
@@ -42,11 +49,6 @@ export const errorHandler : ErrorRequestHandler = (err, req, res, next) => {
       .json({ "statusCode": 404, "message": err.message, "error": "Not Found"})
     }
 
-    console.log(`
-    ----------------#################------------------------
-    ${err}
-    ----------------#################------------------------
-    `)
     res.status(500)
     .json({ "statusCode": 500, "message": "Something went wrong", "error": "Internal server error"})
 }

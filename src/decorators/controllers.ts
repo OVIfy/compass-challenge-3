@@ -1,7 +1,5 @@
 import "reflect-metadata";
 import { Methods } from "./@types/Methods";
-import { IRouter, Router } from "express";
-// export const router = Router()
 import { AppRouter } from "../AppRouter";
 
 
@@ -19,7 +17,6 @@ export function controller(rootRoute : string) : ClassDecorator{
                 router[method](`${rootRoute}${pathStr}`, ...middlewares,controllerFn)
             }
         })
-        console.log(AppRouter.getInstance().stack)
     }
 }
 

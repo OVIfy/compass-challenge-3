@@ -5,7 +5,6 @@ import morgan from "morgan";
 import { connectToDB } from "./db/connect";
 import { errorHandler } from "./middlewares/handler";
 
-//controllers
 import "./controllers/UserController";
 import "./controllers/EventController";
 
@@ -21,6 +20,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1', AppRouter.getInstance())
+
 app.use(errorHandler)
 
 app.listen(PORT,async ()=>{

@@ -3,12 +3,13 @@ import Service from "./Services";
 import { EventRepo } from '../repositories/EventRepository';
 import { Event } from '../db/schema-models/Event';
 import { ObjectId } from 'mongoose';
+import { throwNotFoundError } from '../errors/errors';
 
 export type dayOfWeek = {
     dayOfWeek : string
 }
 
-export class EventService extends Service<Event, Event>{
+export class EventService extends Service<Event>{
     _repository = new EventRepo()
   
     async create(event : Event){
@@ -38,9 +39,9 @@ export class EventService extends Service<Event, Event>{
     async deleteEventsByDay(query : dayOfWeek){
         const eventsToBeDel = await this.findEventsByDescOrDay(query as Event)
 
-        if(eventsToBeDel) await this._repository.deleteMany(query)
+        if(eventsToBeDel.length > 0) await this._repository.deleteMany(query)
+        else throwNotFoundError('No matching Events')
 
-        console.log(eventsToBeDel)
         return eventsToBeDel
     }
 }

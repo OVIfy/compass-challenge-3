@@ -1,5 +1,5 @@
 import 'express-async-errors'
-import { User, StrictUser } from "../db/schema-models/User";
+import { User } from "../db/schema-models/User";
 import Service from "./Services";
 import { UserRepo } from "../repositories/UserRepository";
 import { throwNotFoundError, throwValidationError } from "../errors/errors";
@@ -11,11 +11,11 @@ export type UserWithEmailAndPass = {
     password : string
 }
 
-export class UserService extends Service<User, StrictUser>{
+export class UserService extends Service<User>{
 
     _repository = new UserRepo()
 
-    async create(user: StrictUser){
+    async create(user : Required<User>){
         const foundUser = await this._repository.findByEmail({email : user.email})
         if (foundUser) throwValidationError('invalid email, Email already exists', 'Validation Error', 'Email')
 

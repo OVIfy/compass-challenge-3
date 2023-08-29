@@ -4,7 +4,7 @@ import { EventModel } from "../db/schema-models/Event"
 import { Document, Query, QueryOpThatReturnsDocument } from "mongoose"
 
 
-export class EventRepo extends Repository<Event, Event>{
+export class EventRepo extends Repository<Event>{
     protected _model = EventModel
 
     async findEventsByDescOrDay(query : Event){

@@ -1,5 +1,5 @@
 import { Repository } from "./Repository"
-import { StrictUser, User } from "../db/schema-models/User"
+import { User } from "../db/schema-models/User"
 import { UserModel } from "../db/schema-models/User"
 import { Entity } from "../@types/Entity"
 import { Document, Query, QueryOpThatReturnsDocument } from "mongoose"
@@ -8,7 +8,7 @@ type userHasEmail = {
     email : string
 }
 
-export class UserRepo extends Repository<User, StrictUser>{
+export class UserRepo extends Repository<User>{
     protected _model = UserModel
 
     async findByEmail(validObj : userHasEmail){

@@ -2,15 +2,19 @@ import { Document, FilterQuery, Model, ObjectId } from "mongoose"
 import { User } from "../db/schema-models/User"
 import { UserModel } from "../db/schema-models/User"
 
-export abstract class Repository<T, K>{
+interface ObjWithID{
+    _id : string 
+}
+
+export abstract class Repository<T>{
     protected abstract _model : Model<T>
 
-    async create(validObj : K){
+    async create(validObj : Partial<T>){
         const createdObj = await this._model.create(validObj)
-        return createdObj
+        return createdObj as Required<T> & ObjWithID
     }
 
-    async find(validObj : FilterQuery<T>){
+    async find(validObj : FilterQuery<Partial<T>>){
         const foundObj = this._model.find(validObj)
         return foundObj 
     }
@@ -24,7 +28,7 @@ export abstract class Repository<T, K>{
         await this._model.findByIdAndDelete(id)
     }
 
-    async deleteMany(query : FilterQuery<T>){
+    async deleteMany(query : FilterQuery<Partial<T>>){
         await this._model.deleteMany(query)
     }
 }

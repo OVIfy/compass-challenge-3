@@ -5,19 +5,24 @@ import 'express-async-errors'
 import { ObjectId } from "mongoose";
 import { Repository } from "../repositories/Repository";
 import { throwNotFoundError } from "../errors/errors";
+import { Entity } from '../@types/Entity';
 
-abstract class Service<T, K>{
+interface ObjWithID{
+    _id : string 
+}
 
-    protected abstract _repository : Repository<T, K>
+abstract class Service<T>{
 
-    abstract create(validObj : K) : void
+    protected abstract _repository : Repository<T>
 
-    async findById(id : ObjectId | string):Promise<T>{
+    abstract create(validObj : Partial<T>) : void
+
+    async findById(id : ObjectId | string):Promise<T & ObjWithID>{
         const foundObj = await this._repository.findById(id)
 
         if(!foundObj) throwNotFoundError('Not Found')
 
-        return foundObj as T
+        return foundObj as T & ObjWithID
     }
 
     async deleteById(id : ObjectId | string){
