@@ -1,4 +1,14 @@
-# compass-challenge-1
+# compass-challenge-3
+My submission for the third challenge of the compass scholarship program.
+The challenge was to build a simple api following this [swagger documentation](https://app.swaggerhub.com/apis-docs/PAULOSENA/sp_nigeria_third_challenge/1.0.0) using typescript, express and jest for unit
+tests with at least 50% coverage
+- [Installation](#installation)
+- [Documentation](#documentation)
+- [Changelog](#changelog)
+- [License](#license)
+
+## Installation
+
 ## description
 This is my solution to the second challenge courtesy of Compass Academy Scolarship, Node js tract. It is a simple user API that has the following features
 - input validation
