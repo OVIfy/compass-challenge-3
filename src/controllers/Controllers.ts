@@ -1,7 +1,4 @@
-import { Request, RequestHandler, Response } from 'express';
-import codes from 'http-status-codes';
-import { Entity } from '../@types/Entity';
-import Service from '../services/Services';
+import { Request, Response } from 'express';
 
 
 
