@@ -5,7 +5,7 @@ tests with at least 50% coverage
 - [Installation](#installation)
 - [Technologies](#technologies)
 - [WalkThrough](#walkthrough)
-- [What i lernt](#whatilearnt)
+- [What i learnt](#whatilearnt)
 
 ## Installation
 after you have cloned the repo follow the steps below
