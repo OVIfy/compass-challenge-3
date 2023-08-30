@@ -11,12 +11,12 @@ tests with at least 50% coverage
 after you have cloned the repo follow the steps below
 - install dependencies
   use npm to install all dependencies using the install command below
-  ```js
+  ```bash
    npm install
   ```
 - fill in env variables
   before going ahead to run the variables the .env file in the root of your project looks something like this
-  ```env
+  ```plaintext
     MONGO_URI=
     PORT=
     SECRET=
@@ -28,7 +28,7 @@ after you have cloned the repo follow the steps below
   
 - run tests
   you can now go ahead to run the tests using the command below
-  ```js
+  ```bash
       npm test
   ```
 
@@ -37,12 +37,12 @@ I suggest you use that command instead because each time i try to run the tests 
 
 - build and run server
   after the test result has been displayed you can exit the interactive jest terminal them build the typescript server using the command below
-  ```js
+  ```bash
       npm run build
   ```
 
   after that run the server using
-  ```js
+  ```bash
       npm run start
   ```
 
