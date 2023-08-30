@@ -66,10 +66,20 @@ and these packages:
 - JOI for input validation
 - bcrypt for hashing
 - JsonWebToken for jwt tokens
+- express-async-errors
 
 
 ## walkthrough<a name="section_name"></a> 
 This challenge was challenging a whole lot😂. 
+I had to learn typescript and testing. while I was learning typescript I fell in love with the use case for decorators. there was a part in the tutorial where the tutor automated the routing process, all you had to do was add a decorator and a new route was added or to add a middleware all that was needeed was to use a @use
+decorator. the use of decorators made the code preety readable and cool as well. I wanted to combine decorators with the repository-controller-service pattern that
+paulo suggested when he [shared the link to an article with us](https://tom-collings.medium.com/controller-service-repository-16e29a4684e5#:~:text=The%20Service%20layer%20is%20where,pretty%20simple%20separation%20of%20concerns) the problem however was that the article was written in java and was not easy to understand as i am not properly grounded in java.
+
+i had to search on github for typescript projects that followed the repository-controller-service pattern then i found [this one](https://github.com/OVIfy/assets-management-api/tree/main) so i went through their code to understand what the repository-controller-service pattern really meant. and following their folder structure i began working on my own.
+
+at the end of the day i just wanted to combine decorators and the repository-controller-service pattern, since this was going to be the last challenge i just wanted to showcase all i had learnt in this one project.
+
+also note that i had to copy some parts of the decorators implementation from the original tutor to save time as it wasn't a core test or server implementation but a dependency
 
 ## What I learnt
 i learnt a lot whike working on this challenge, but i'll give a summary
