@@ -27,9 +27,8 @@
     "reflect-metadata": "^0.1.13"
   },
   "scripts": {
-    "start:build": "tsc -w",
-    "start:run": "nodemon build/index.js",
-    "start": "concurrently npm:start:*",
+    "build": "tsc",
+    "start": "nodemon build/index.js",
     "test": "jest --coverage --detectOpenHandles"
   }
 }
