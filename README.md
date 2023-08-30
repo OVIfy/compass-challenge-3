@@ -3,9 +3,7 @@ My submission for the third challenge of the compass scholarship program.
 The challenge was to build a simple api following this [swagger documentation](https://app.swaggerhub.com/apis-docs/PAULOSENA/sp_nigeria_third_challenge/1.0.0) using typescript, express and jest for unit
 tests with at least 50% coverage
 - [Installation](#installation)
-- [Documentation](#documentation)
-- [Changelog](#changelog)
-- [License](#license)
+- [Technologies](#technologies)
 - [WalkThrough](#walkthrough)
 - [What i lernt](#whatilearnt)
 
@@ -48,14 +46,7 @@ I suggest you use that command instead because each time i try to run the tests 
   ```
 if everything was successfull you should thwn see server is running on port [whatever port you specified]
 
-
-## description
-This is my solution to the second challenge courtesy of Compass Academy Scolarship, Node js tract. It is a simple user API that has the following features
-- input validation
-- CRUD operations on user records
-- user authentication and authorization
-
-## technologies used
+## technologies used<a name="technologies"></a> 
 for this project i used the following technologies
 - Express (Node js framework)
 - MongoDB/Atlas (Database)
@@ -69,7 +60,7 @@ and these packages:
 - express-async-errors
 
 
-## walkthrough<a name="section_name"></a> 
+## walkthrough<a name="walkthrough"></a> 
 This challenge was challenging a whole lot😂. 
 I had to learn typescript and testing. while I was learning typescript I fell in love with the use case for decorators. there was a part in the tutorial where the tutor automated the routing process, all you had to do was add a decorator and a new route was added or to add a middleware all that was needeed was to use a @use
 decorator. the use of decorators made the code preety readable and cool as well. I wanted to combine decorators with the repository-controller-service pattern that
@@ -81,7 +72,7 @@ at the end of the day i just wanted to combine decorators and the repository-con
 
 also note that i had to copy some parts of the decorators implementation from the original tutor to save time as it wasn't a core test or server implementation but a dependency
 
-## What I learnt
+## What I learnt<a name="whatilearnt"></a> 
 i learnt a lot whike working on this challenge, but i'll give a summary
 - typescript
   i leart about type annotations, type inference, interfaces, generics, decorators, type decleration files
