@@ -3,7 +3,6 @@ import bcrypt from 'bcrypt'
 const saltRounds = 10;
 
 const userSchema = new Schema({
-    id:String,
     firstName : String,
     lastName : String,
     birthDate : String,

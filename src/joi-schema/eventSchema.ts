@@ -11,5 +11,5 @@ export const queryByDayorDescJoiSchema = Joi.object({
 })
 
 export const queryByDaySchema = Joi.object({
-    dayOfWeek : Joi.string().valid('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday')
+    dayOfWeek : Joi.string().valid('sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday').required()
 })

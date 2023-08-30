@@ -17,7 +17,7 @@ export class EventService extends Service<Event>{
         return {_id, description, dayOfWeek, publisher}
     }
 
-    async findEventsByDescOrDay(query : Event){
+    async findEventsByDescOrDay(query : Partial<Event>){
         if(query.description){
             let re = new RegExp(query.description, "i");
             query.description = re as any
@@ -29,11 +29,11 @@ export class EventService extends Service<Event>{
     async find(id : string | ObjectId){
         const event = await this.findById(id)
         return {
-            _id : event?._id,
+            _id : event._id,
             description : event.description,
             dayOfWeek : event.dayOfWeek,
-            publisher : event?.publisher,
-        } as any
+            publisher : event.publisher,
+        } as Required<Event> & {_id : string}
     }
 
     async deleteEventsByDay(query : dayOfWeek){

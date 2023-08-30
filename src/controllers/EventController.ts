@@ -1,8 +1,8 @@
-import { Request, Response } from "express"
+import { Response } from "express"
 import { get, controller, post, del, use } from "../decorators"
 import Controller from "./Controllers"
 import { Event } from "../db/schema-models/Event"
-import { EventService, dayOfWeek } from "../services/EventService"
+import { EventService} from "../services/EventService"
 import { validateByDayQuery, validateEventByDesorDayQuery, validateEventToBeCreated, validateParamId } from "../middlewares/bodyValidators"
 import { authenticator } from "../middlewares/authenticator"
 import { AuthenticatedRequest } from "../middlewares/authenticator"
@@ -10,7 +10,7 @@ import { AuthenticatedRequest } from "../middlewares/authenticator"
 const eventService = new EventService()
 
 @controller('/events')
-export class EventContollers extends Controller<Event>{
+export class EventContollers extends Controller{
 
     _service = eventService
 

@@ -14,7 +14,8 @@ const eventSchema = new Schema({
    },
    publisher: {
     type: String,
-    ref: 'User'
+    ref: 'User',
+    required : true
     }
 })
 

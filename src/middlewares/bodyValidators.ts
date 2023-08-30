@@ -1,5 +1,5 @@
-import { userJoiSchema, userSignInSchema } from '../schema/userSchema';
-import { eventJoiSchema, queryByDaySchema, queryByDayorDescJoiSchema } from '../schema/eventSchema';
+import { userJoiSchema, userSignInSchema } from '../joi-schema/userSchema';
+import { eventJoiSchema, queryByDaySchema, queryByDayorDescJoiSchema } from '../joi-schema/eventSchema';
 import { NextFunction, Request, Response } from "express";
 import { handleJoiError } from "../utils/handleJoiError";
 import { isObjectIdOrHexString } from 'mongoose';
@@ -24,7 +24,6 @@ export function validateEventToBeCreated(req : Request, res:Response , next:Next
 }
 
 export function validateEventByDesorDayQuery(req : Request, res:Response , next:NextFunction){
-    console.log(req.query)
     const { error } = queryByDayorDescJoiSchema.validate(req.query);
     if(error) handleJoiError(error as any)
     next()
@@ -38,7 +37,6 @@ export function validateParamId(req : Request, res:Response , next:NextFunction)
 }
 
 export function validateByDayQuery(req : Request, res:Response , next:NextFunction){
-    console.log(req.query)
     const { error } = queryByDaySchema.validate(req.query);
     if(error) handleJoiError(error as any)
     next()

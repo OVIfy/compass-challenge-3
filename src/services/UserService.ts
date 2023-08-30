@@ -19,19 +19,15 @@ export class UserService extends Service<User>{
         const foundUser = await this._repository.findByEmail({email : user.email})
         if (foundUser) throwValidationError('invalid email, Email already exists', 'Validation Error', 'Email')
 
-        const createdUser = (await this._repository.create(user))
-        return {
-            firstName : createdUser.firstName,
-            lastName : createdUser.lastName,
-            email : createdUser.email
-        }
+        const {firstName, lastName, email} = (await this._repository.create(user))
+        return {firstName,lastName,email}
     }
 
     async signIn(user : UserWithEmailAndPass){
-        const foundUser = await this._repository.findByEmail({email : user.email})
+        const foundUser  = await this._repository.findByEmail({email : user.email})
         if(!foundUser) throwNotFoundError('Email does not exist in our database')
 
-        const isPasswordCorrect = await this.validateUser(user, foundUser as UserWithEmailAndPass )
+        const isPasswordCorrect = await this.validateUser(user, foundUser as Required<User>)
         
         
         if(isPasswordCorrect){

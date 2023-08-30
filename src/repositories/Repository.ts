@@ -2,7 +2,7 @@ import { Document, FilterQuery, Model, ObjectId } from "mongoose"
 import { User } from "../db/schema-models/User"
 import { UserModel } from "../db/schema-models/User"
 
-interface ObjWithID{
+export interface ObjWithID{
     _id : string 
 }
 

@@ -1,8 +1,6 @@
-import { Repository } from "./Repository"
+import { ObjWithID, Repository } from "./Repository"
 import { User } from "../db/schema-models/User"
 import { UserModel } from "../db/schema-models/User"
-import { Entity } from "../@types/Entity"
-import { Document, Query, QueryOpThatReturnsDocument } from "mongoose"
 
 type userHasEmail = {
     email : string
