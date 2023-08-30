@@ -31,8 +31,8 @@ after you have cloned the repo follow the steps below
   ```bash
       npm test
   ```
- npm test runs the command jest --coverage --detectOpenHandles
-I suggest you use that command instead because each time i try to run the tests without the --detectOpenHandles, one of the tests suites fails. and the waring jest returns is something along the line of memory leak or something like that and at this moment i do not have the experties to tackle that difficulty
+  npm test runs the command jest --coverage --detectOpenHandles
+  I suggest you use that command instead because each time i try to run the tests without the --detectOpenHandles, one of the tests suites fails. and the waring jest returns is something along the line of memory   leak or something like that and at this moment i do not have the experties to tackle that difficulty
 
 - build and run server
   after the test result has been displayed you can exit the interactive jest terminal them build the typescript server using the command below
@@ -44,7 +44,7 @@ I suggest you use that command instead because each time i try to run the tests 
   ```bash
       npm run start
   ```
-if everything was successfull you should thwn see server is running on port [whatever port you specified]
+  if everything was successfull you should thwn see server is running on port [whatever port you specified]
 
 ## technologies used<a name="technologies"></a> 
 for this project i used the following technologies
