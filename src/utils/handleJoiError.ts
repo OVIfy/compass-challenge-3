@@ -1,4 +1,4 @@
-import * as Joi from '@hapi/joi';
+import Joi from 'joi';
 import { throwBadRequestError } from '../errors/errors';
 
 export function handleJoiError(joiError : Joi.ValidationError){
