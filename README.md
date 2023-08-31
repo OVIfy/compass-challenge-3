@@ -10,12 +10,12 @@ tests with at least 50% coverage
 
 ## Installation<a name="installation"></a>
 after you have cloned the repo follow the steps below
-- install dependencies
+- install dependencies<br />
   use npm to install all dependencies using the install command below
   ```bash
    npm install
   ```
-- fill in env variables
+- fill in env variables<br />
   before going ahead to run the variables the .env file in the root of your project looks something like this
   ```bash
     MONGO_URI=
@@ -35,13 +35,13 @@ after you have cloned the repo follow the steps below
   npm test runs the command jest --coverage --detectOpenHandles
   I suggest you use npm test because each time i try to run the tests without the --detectOpenHandles, one of the tests suites fails. and the waring jest returns is something along the line of memory   leak or something like that and at this moment i do not have the experties to tackle that difficulty
 
-- build and run server
+- build and run server <br />
   after the test result has been displayed you can exit the interactive jest terminal them build the typescript server using the command below
   ```bash
       npm run build
   ```
 
-  after that run the server using
+  after that run the server using 
   ```bash
       npm run start
   ```
@@ -77,13 +77,13 @@ testing at first was confusing, i did not know what to test or how to go about i
 
 ## What I learnt<a name="whatilearnt"></a> 
 i learnt a lot whike working on this challenge, but i'll give a summary
-- typescript
+- typescript<br />
   i leart about type annotations, type inference, interfaces, generics, decorators, type decleration files
-- design patterns
+- design patterns<br />
   i learnt about delegation, composition, inheritance, and i'm kinda familiar to an extent with the controller-service-repository pattern
-- testing
+- testing<br />
   i learn about tests, the F.I.R.S.T principle of tests, setup and teardown, AAA principle, was familiarized with jest, mocks, stubs, e.t.c
-- thunderclient
+- thunderclient<br />
   as an extra i learnt how to use the thunderClient VS code extension, my workflow with it was smooth as I did not have to leave vs code while making use of it,
   and i also learn how to automate filling in the authorization header in thunderClient
 
