@@ -17,7 +17,7 @@ after you have cloned the repo follow the steps below
   ```
 - fill in env variables
   before going ahead to run the variables the .env file in the root of your project looks something like this
-  ```plaintext
+  ```bash
     MONGO_URI=
     PORT=
     SECRET=
