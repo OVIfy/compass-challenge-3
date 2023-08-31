@@ -45,7 +45,7 @@ after you have cloned the repo follow the steps below
   ```bash
       npm run start
   ```
-  if everything was successfull you should thwn see server is running on port [whatever port you specified]
+  if everything was successfull you should see server is running on port [whatever port you specified] displayed on the console
 
 ## technologies used<a name="technologies"></a> 
 for this project i used the following technologies
