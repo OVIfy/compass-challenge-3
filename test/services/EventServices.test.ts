@@ -9,7 +9,6 @@ import { NotFoundError } from "../../src/errors/errors"
 import { EventService } from "../../src/services/EventService"
 import mongoose from "mongoose"
 
-// let mockEventCreate = jest.fn().mockResolvedValue(})
 
 jest.mock("../../src/repositories/EventRepository", function(){
     return {
@@ -52,11 +51,6 @@ describe('EventServices test suite', ()=>{
             {...testEvent, _id : '64ef2eb9823d6b90e7a82ad2'},
             {...testEvent, _id : '64ef2eb9823d6b90e7a82ad3'}
         ])
-        
-        
-        // await mongoose.connect(process.env.TEST_MONGO_URI as string)
-        // .then((validConnection) => validDbConnection = validConnection)
-        // .catch((err) => console.log(err))
     })
 
     beforeEach(()=>{
@@ -75,7 +69,7 @@ describe('EventServices test suite', ()=>{
     })
 
     afterAll(async ()=>{
-        // await mongoose.connection.dropCollection('events')
+        
     })
 
     afterEach(() => {
@@ -83,10 +77,6 @@ describe('EventServices test suite', ()=>{
         findByIdMockFn.mockReset()
         deleteManyMockFn.mockReset()
     })
-
-    // it('should connect to test database', ()=>{
-    //     expect(validDbConnection).not.toBeFalsy()
-    // })
 
     it('should call repository.create on create', async ()=>{
         const event = await eventService.create(testEvent)
