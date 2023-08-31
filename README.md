@@ -76,7 +76,7 @@ also note that i had to copy some parts of the decorators implementation from th
 testing at first was confusing, i did not know what to test or how to go about it but after research, [chat with gpt](https://chat.openai.com/share/1f30051d-2b35-4781-a585-75e87730c6eb) and a friend i began to get the hang of it. i fell in love😂 with mocks and stubs and all the beautiful simulations you could run with them.
 
 ## What I learnt<a name="whatilearnt"></a> 
-i learnt a lot whike working on this challenge, but i'll give a summary
+i learnt a lot while working on this challenge, but i'll give a summary
 - typescript<br />
   i leart about type annotations, type inference, interfaces, generics, decorators, type decleration files
 - design patterns<br />
