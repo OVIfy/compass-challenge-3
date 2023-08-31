@@ -89,5 +89,5 @@ i learnt a lot whike working on this challenge, but i'll give a summary
 
 
 ## Conclusion<a name="conclusion"></a>
-i'll be looking forward to your review, what i should have done better, what i should do next time, what i should learn next, and whatever else you feel i should know, i really learnt a lot with this challeng and i am very greatfull for the opportunity.
+i'll be looking forward to your review, what i should have done better, what i should do next time, what i should learn next, and whatever else you feel i should know, i really learnt a lot with this challenge and i am very greatfull for the opportunity.
 Thank you [Compass](https://compass.uol/en/home/)🧡
