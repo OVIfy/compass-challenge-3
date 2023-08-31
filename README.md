@@ -27,7 +27,7 @@ after you have cloned the repo follow the steps below
   to a mongodb database. __MONGO_URI__ and __TEST_MONGO_URI__ must be valid mongodb [connection uri strings](https://www.mongodb.com/docs/manual/reference/connection-string/) it could be a local db or an atlas     cluster, it is advisable to use different databases for the __MONGO_URI__ and __TEST_MONGO_URI__. __PORT__ is for the port you want the backend to run on, and the __SECRET__ is for creating jwt on successfull
   user sign in
   
-- run tests
+- run tests <br>
   you can now go ahead to run the tests using the command below
   ```bash
       npm test
