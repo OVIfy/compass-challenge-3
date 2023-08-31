@@ -6,8 +6,9 @@ tests with at least 50% coverage
 - [Technologies](#technologies)
 - [WalkThrough](#walkthrough)
 - [What i learnt](#whatilearnt)
+- [conclusion](#conclusion)
 
-## Installation
+## Installation<a name="installation"></a>
 after you have cloned the repo follow the steps below
 - install dependencies
   use npm to install all dependencies using the install command below
@@ -72,6 +73,8 @@ at the end of the day i just wanted to combine decorators and the repository-con
 
 also note that i had to copy some parts of the decorators implementation from the original tutor to save time as it wasn't a core test or server implementation but a dependency
 
+testing at first was confusing, i did not know what to test or how to go about it but after research, [chat with gpt](https://chat.openai.com/share/1f30051d-2b35-4781-a585-75e87730c6eb) and a friend i began to get the hang of it. i fell in love😂 with mocks and stubs and all the beautiful simulations you could run with them.
+
 ## What I learnt<a name="whatilearnt"></a> 
 i learnt a lot whike working on this challenge, but i'll give a summary
 - typescript
@@ -84,3 +87,7 @@ i learnt a lot whike working on this challenge, but i'll give a summary
   as an extra i learnt how to use the thunderClient VS code extension, my workflow with it was smooth as I did not have to leave vs code while making use of it,
   and i also learn how to automate filling in the authorization header in thunderClient
 
+
+## Conclusion<a name="conclusion"></a>
+i'll be looking forward to your review, what i should have done better, what i should do next time, what i should learn next, and whatever else you feel i should know, i really learnt a lot with this challeng and i am very greatfull for the opportunity.
+Thank you [Compass](https://compass.uol/en/home/)🧡
